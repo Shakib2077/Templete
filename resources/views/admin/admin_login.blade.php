@@ -4,9 +4,9 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="description" content="Responsive HTML Admin Dashboard Template based on Bootstrap 5">
-	<meta name="author" content="NobleUI">
-	<meta name="keywords" content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+  <!-- <meta name="description" content="Responsive HTML Admin Dashboard Template based on Bootstrap 5"> -->
+	<!-- <meta name="author" content="NobleUI"> -->
+	<!-- <meta name="keywords" content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web"> -->
 
 	<title>Admin Login-Page</title>
 
@@ -67,11 +67,11 @@
 
                       <div class="mb-3">
                         <label for="login" class="form-label">Email/Name/Phone</label>
-                        <input type="text" name="login" class="form-control" id="login" placeholder="Email">
+                        <input type="text" name="login" class="form-control" id="login" placeholder="Email" Required="required">
                       </div>
                       <div class="mb-3">
                         <label for="userPassword" class="form-label">Password</label>
-                        <input type="password" class="form-control" name="password" id="userPassword" autocomplete="current-password" placeholder="Password">
+                        <input type="password" class="form-control" name="password" id="userPassword" autocomplete="current-password" placeholder="Password" Required="required">
                       </div>
                       <div class="form-check mb-3">
                         <input type="checkbox" class="form-check-input" id="authCheck">
