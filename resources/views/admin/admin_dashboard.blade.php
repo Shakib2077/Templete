@@ -16,6 +16,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
   <!-- End fonts -->
 
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="{{ asset('backend/assets/vendors/datatables.net-bs5/dataTables.bootstrap5.css') }}">
+	<!-- End plugin css for this page -->
+
 	<!-- core:css -->
 	<link rel="stylesheet" href="{{ asset('backend/assets/vendors/core/core.css') }}">
 	<!-- endinject -->
@@ -65,8 +69,8 @@
 	<!-- endinject -->
 
 	<!-- Plugin js for this page -->
-  <script src="{{ asset('backend/assets/vendors/flatpickr/flatpickr.min.js') }}"></script>
-  <script src="{{ asset('backend/assets/vendors/apexcharts/apexcharts.min.js') }}"></script>
+  	<script src="{{ asset('backend/assets/vendors/flatpickr/flatpickr.min.js') }}"></script>
+  	<script src="{{ asset('backend/assets/vendors/apexcharts/apexcharts.min.js') }}"></script>
 	<!-- End plugin js for this page -->
 
 	<!-- inject:js -->
@@ -75,7 +79,7 @@
 	<!-- endinject -->
 
 	<!-- Custom js for this page -->
-  <script src="{{ asset('backend/assets/js/dashboard-dark.js') }}"></script>
+  	<script src="{{ asset('backend/assets/js/dashboard-dark.js') }}"></script>
 	<!-- End custom js for this page -->
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -102,5 +106,19 @@
 		}
 		@endif
 	</script>
+
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+	<script src="{{ asset('backend/assets/js/code/code.js') }}"></script>
+
+	<!-- Plugin js for this page -->
+	<script src="{{ asset('backend/assets/vendors/datatables.net/jquery.dataTables.js') }}"></script>
+  	<script src="{{ asset('backend/assets/vendors/datatables.net-bs5/dataTables.bootstrap5.js') }}"></script>
+	<!-- End plugin js for this page -->
+
+	<!-- Custom js for this page -->
+	<script src="{{ asset('backend/assets/js/data-table.js') }}"></script>
+	<!-- End custom js for this page -->
+
+
 </body>
 </html>
