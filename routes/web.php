@@ -58,5 +58,15 @@ Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.
         Route::post('/update/type', 'UpdateType')->name('update.type');
         Route::get('/delete/type/{id}', 'DeleteType')->name('delete.type');
     });
+
+
+    Route::controller(PropertyTypeController::class)->group(function(){
+        Route::get('/all/aminitie', 'AllAminitie')->name('all.aminitie');
+        Route::get('/add/aminitie', 'AddAminitie')->name('add.aminitie');
+        Route::post('/store/aminitie', 'StoreAminitie')->name('store.aminitie');
+        Route::get('/edit/aminitie/{id}', 'EditAminitie')->name('edit.aminitie');
+        Route::post('/update/aminitie', 'UpdateAminitie')->name('update.aminitie');
+        Route::get('/delete/aminitie/{id}', 'DeleteAminitie')->name('delete.aminitie');
+    });
 // });
 
