@@ -15,7 +15,7 @@
 
 			<h6 class="card-title">Edit Roles</h6>
 
-			<form id="myForm" method="POST" action="{{ route('update.roles') }}" class="forms-sample">
+			<form method="POST" action="{{ route('update.roles') }}" class="forms-sample">
                   @csrf
 
                   <input type="hidden" name="id" value="{{ $roles->id }}">
