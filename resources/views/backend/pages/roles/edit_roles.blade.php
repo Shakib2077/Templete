@@ -5,12 +5,6 @@
 
 <div class="page-content">
 
-        <nav class="page-breadcrumb">
-		    <ol class="breadcrumb">
-        <a href="{{ route('export') }}" class="btn btn-outline-danger">Download Xlsx</a>
-			</ol>
-		</nav>
-
         <div class="row profile-body">
 
           <!-- middle wrapper start -->
@@ -19,17 +13,18 @@
             <div class="card">
               <div class="card-body">
 
-			<h6 class="card-title">Import Permission</h6>
+			<h6 class="card-title">Edit Roles</h6>
 
-			<form method="POST" action="{{ route('import') }}" class="forms-sample" enctype="multipart/form-data">
-          @csrf
+			<form id="myForm" method="POST" action="{{ route('update.roles') }}" class="forms-sample">
+                  @csrf
 
+                  <input type="hidden" name="id" value="{{ $roles->id }}">
 				<div class="mb-3">
-					<label for="exampleInputName" class="form-label">Xlsx File Import</label>
-					<input type="file" name="import_file" class="form-control">
+					<label for="exampleInputName" class="form-label">Role Name</label>
+					<input type="text" name="name" class="form-control" value="{{ $roles->name}}">
 				</div>
 
-					<button type="submit" class="btn btn-outline-warning">Upload</button>
+					<button type="submit" class="btn btn-primary me-2">Save Changes</button>
 				</form>
 
               </div>
