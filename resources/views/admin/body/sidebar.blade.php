@@ -93,8 +93,16 @@
                 <li class="nav-item">
                   <a href="{{ route('all.permission') }}" class="nav-link">All Permission</a>
                 </li>
+
                 <li class="nav-item">
                   <a href="{{ route('all.roles') }}" class="nav-link">All Roles</a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="{{ route('add.roles.permission') }}" class="nav-link">Role in Permission</a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{ route('all.roles.permission') }}" class="nav-link">All Role in Permission</a>
                 </li>
 
               </ul>
@@ -104,7 +112,7 @@
 
           <li class="nav-item nav-category">Docs</li>
           <li class="nav-item">
-            <a href="#" target="_blank" class="nav-link">
+            <a href="{{ route('admin.dashboard') }}" class="nav-link">
               <i class="link-icon" data-feather="hash"></i>
               <span class="link-title">Documentation</span>
             </a>

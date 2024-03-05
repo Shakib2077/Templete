@@ -9,6 +9,8 @@ use Spatie\Permission\Models\Permission;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\PermissionExport;
 use App\Imports\PermissionImport;
+use App\Models\User;
+use DB;
 
 class RoleController extends Controller
 {
@@ -148,5 +150,39 @@ class RoleController extends Controller
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
+    }
+
+
+    //Add Roles Permission all method//
+
+    public function AddRolesPermission(){
+
+        $roles = Role::all();
+        $permissions = Permission::all();
+        $permission_groups = User::getpermissionGroups();
+        return view('backend.pages.rolesetup.add_roles_permission',compact('roles','permissions','permission_groups'));
+    }
+
+    public function RolePermissionStore(Request $request){
+
+        $permissions = $request->permission;
+        foreach($permissions as $key => $permission_id){
+            $data = [
+                'role_id' => $request->role_id,
+                'permission_id' => $permission_id
+            ];
+            DB::table('role_has_permissions')->insert($data);
+        }
+        $notification = [
+            'message' => 'Role Permission Added Successfully!',
+            'alert-type' => 'success'
+        ];
+        return redirect()->route('all_roles_permissions')->with($notification);
+    }
+
+    public function AllRolesPermission(){
+
+        $roles = Role::all();
+        return view('backend.pages.rolesetup.all_roles_permission',compact('roles'));
     }
 }

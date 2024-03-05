@@ -19,6 +19,7 @@
                   @csrf
 
                   <input type="hidden" name="id" value="{{ $roles->id }}">
+
 				<div class="mb-3">
 					<label for="exampleInputName" class="form-label">Role Name</label>
 					<input type="text" name="name" class="form-control" value="{{ $roles->name}}">
