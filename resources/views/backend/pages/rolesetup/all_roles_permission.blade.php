@@ -38,7 +38,6 @@
                         <td>
             <a href="{{ route('edit.roles', $item->id) }}" class="btn btn-outline-warning"> Edit</a>
             <a href="{{ route('delete.roles', $item->id) }}" class="btn btn-outline-danger" id="delete"> Delete</a>
-
                         </td>
                       </tr>
                     @endforeach

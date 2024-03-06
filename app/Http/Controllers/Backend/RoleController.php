@@ -95,7 +95,7 @@ class RoleController extends Controller
     }
 
 
-    //Role method
+    //Role method all//
 
     public function AllRoles(){
 
@@ -177,7 +177,7 @@ class RoleController extends Controller
             'message' => 'Role Permission Added Successfully!',
             'alert-type' => 'success'
         ];
-        return redirect()->route('all_roles_permission')->with($notification);
+        return redirect()->route('all.roles.permission')->with($notification);
     }
 
     public function AllRolesPermission(){
