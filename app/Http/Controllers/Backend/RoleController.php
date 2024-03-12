@@ -166,6 +166,21 @@ class RoleController extends Controller
     public function RolePermissionStore(Request $request){
 
         $permissions = $request->permission;
+
+    if (is_array($permissions) && !empty($permissions)) {
+        foreach ($permissions as $key => $permission_id) {
+
+        }
+    } else {
+
+        $notification = [
+            'message' => 'No permissions selected!',
+            'alert-type' => 'success'
+        ];
+        return redirect()->route('all.roles.permission')->with($notification);
+    }
+
+        $permissions = $request->permission;
         foreach($permissions as $key => $permission_id){
             $data = [
                 'role_id' => $request->role_id,
@@ -185,4 +200,55 @@ class RoleController extends Controller
         $roles = Role::all();
         return view('backend.pages.rolesetup.all_roles_permission',compact('roles'));
     }
+
+    public function AdminEditRoles($id){
+
+        $role = Role::findOrFail($id);
+        $permissions = Permission::all();
+        $permission_groups = User::getpermissionGroups();
+        return view('backend.pages.rolesetup.edit_roles_permission',compact('role','permissions','permission_groups'));
+
+    }
+
+    public function AdminEditsRoles($id){
+
+        $role = Role::findorfail($id);
+        $permissions = Permission::all();
+        $permission_groups = User::getpermissionGroups();
+        return view('backend.pages.rolesetup.edit_roles_permission',compact('role','permissions','permission_group'));
+    }
+
+    public function AdminRolesUpdate(Request $request, $id){
+        $role = Role::findorfail($id);
+        $permissions = $request->permission;
+
+        if(!empty($permissions)){
+            $role->syncPermissions($permissions);
+        }
+        $notification = [
+            'message' => 'Role Permission Updated Successfully!',
+            'alert-type' => 'success'
+        ];
+        return redirect()->route('all.roles.permission')->with($notification);
+    }
+
+    // public function AdminRolesUpdate(Request $request, $id) {
+    //     $role = Role::findOrFail($id);
+
+    //     $permissions = $request->permission;
+
+    //     // Convert permission IDs to names if necessary
+    //     $permissionNames = Permission::whereIn('id', $permissions)->pluck('name')->toArray();
+
+    //     // Sync the permission names to the role
+    //     $role->syncPermissions($permissionNames);
+
+    //     $notification = [
+    //         'message' => 'Role Permission Updated Successfully!',
+    //         'alert-type' => 'success'
+    //     ];
+
+    //     return redirect()->route('all.roles.permission')->with($notification);
+    // }
+
 }

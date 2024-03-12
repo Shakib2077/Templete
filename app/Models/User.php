@@ -17,14 +17,14 @@ class User extends Authenticatable
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @ var array<int, string>
      */
     protected $guarded = [];
 
     /**
      * The attributes that should be hidden for serialization.
      *
-     * @var array<int, string>
+     * @ var array<int, string>
      */
     protected $hidden = [
         'password',
@@ -34,7 +34,7 @@ class User extends Authenticatable
     /**
      * The attributes that should be cast.
      *
-     * @var array<string, string>
+     * @ var array <string, string>
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
@@ -60,4 +60,18 @@ class User extends Authenticatable
         return $permission;
     }
 
-}
+
+    public static function roleHasPermissions($role, $permissions)
+    {
+        $hasPermission = true;
+
+        foreach ($permissions as $permission) {
+            if (!$role->hasPermissionTo($permission->name)) {
+                $hasPermission = false;
+            }
+        }
+
+        return $hasPermission;
+    }
+
+    }
