@@ -219,12 +219,12 @@ class RoleController extends Controller
     }
 
     public function AdminRolesUpdate(Request $request, $id){
+
         $role = Role::findorfail($id);
         $permissions = $request->permission;
 
-        if(!empty($permissions)){
-            $role->syncPermissions($permissions);
-        }
+        $permissionNames = Permission::whereIn('id', $permissions)->pluck('name')->toArray();
+
         $notification = [
             'message' => 'Role Permission Updated Successfully!',
             'alert-type' => 'success'
@@ -232,23 +232,17 @@ class RoleController extends Controller
         return redirect()->route('all.roles.permission')->with($notification);
     }
 
-    // public function AdminRolesUpdate(Request $request, $id) {
-    //     $role = Role::findOrFail($id);
+    public function AdminDeleteRoles($id){
 
-    //     $permissions = $request->permission;
+        $role = Role::findorfail($id);
 
-    //     // Convert permission IDs to names if necessary
-    //     $permissionNames = Permission::whereIn('id', $permissions)->pluck('name')->toArray();
-
-    //     // Sync the permission names to the role
-    //     $role->syncPermissions($permissionNames);
-
-    //     $notification = [
-    //         'message' => 'Role Permission Updated Successfully!',
-    //         'alert-type' => 'success'
-    //     ];
-
-    //     return redirect()->route('all.roles.permission')->with($notification);
-    // }
-
+        if(!is_null($role)){
+            $role->delete();
+        }
+        $notification = [
+            'message' => 'Role Permission Deleted Successfully!',
+            'alert-type' => 'success'
+        ];
+        return redirect()->route('all.roles.permission')->with($notification);
+    }
 }
