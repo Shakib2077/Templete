@@ -29,15 +29,14 @@
                       <tr>
                         <td>{{ $key+1 }}</td>
                         <td>{{ $item->name }}</td>
-
                         <td>
                         @foreach($item->permissions as $perm)
-                        <span class="badge bg-danger">{{ $perm->name}}</span>
+                        <span class="badge bg-danger">{{ $perm->name }}</span>
                         @endforeach
                         </td>
                         <td>
-    <a href="{{ route('admin.edit.roles', $item->id) }}" class="btn btn-outline-warning"> Edit</a>
-    <a href="{{ route('admin.delete.roles', $item->id) }}" class="btn btn-outline-danger" id="delete"> Delete</a>
+  <a href="{{ route('admin.edit.roles', $item->id) }}" class="btn btn-outline-warning"> Edit</a>
+  <a href="{{ route('admin.delete.roles', $item->id) }}" class="btn btn-outline-danger" id="delete"> Delete</a>
                         </td>
                       </tr>
                     @endforeach
@@ -48,8 +47,7 @@
             </div>
 					</div>
 				</div>
-
-			</div>
+		</div>
 
 
 

@@ -45,10 +45,9 @@
 
 
                 <div class="form-check mb-2">
-                    <input type="checkbox" class="form-check-input" id="checkDefault" {{ App\Models\User::roleHasPermissions($role,$permissions) ? 'checked' : ''}}>
-                    <label class="form-check-label" for="checkDefault">{{ $group->group_name }}</label>
+<input type="checkbox" class="form-check-input" id="checkDefault" {{ App\Models\User::roleHasPermissions($role,$permissions) ? 'checked' : ''}}>
+<label class="form-check-label" for="checkDefault">{{ $group->group_name }}</label>
                 </div>
-
                 </div>
                 <div class="col-md-9">
 
